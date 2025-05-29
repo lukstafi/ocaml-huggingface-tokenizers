@@ -1,0 +1,17 @@
+(rule
+ (targets libhuggingface_tokenizers.a dllhuggingface_tokenizers.so)
+ (deps (glob_files *.rs))
+ (action
+  (progn
+   (run sh -c "cd %{project_root}/../.. && cargo build --release")
+   (run sh -c
+     "mv %{project_root}/../../target/release/libhuggingface_tokenizers.so ./dllhuggingface_tokenizers.so 2> /dev/null || \
+      mv %{project_root}/../../target/release/libhuggingface_tokenizers.dylib ./dllhuggingface_tokenizers.so")
+   (run mv %{project_root}/../../target/release/libhuggingface_tokenizers.a libhuggingface_tokenizers.a))))
+
+(library
+ (name huggingface_tokenizers)
+ (public_name huggingface-tokenizers)
+ (foreign_archives huggingface_tokenizers)
+ (c_library_flags
+  (-lpthread -lc -lm)))
