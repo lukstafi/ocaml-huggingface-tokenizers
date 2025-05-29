@@ -2,13 +2,13 @@
 name = "ocaml-huggingface-tokenizers"
 version = "0.1.0"
 authors = ["Lukasz Stafiniak <lukstafi@gmail.com>"]
-edition = "2021"
+edition = "2024"
 
 [lib]
 crate-type = ["staticlib", "cdylib"]
 
 [dependencies]
-ocaml = {version = "^1.0.0"}
+ocaml = {version = "^1.2.0"}
 tokenizers = {version = "^0.21.0"}
 
 [build-dependencies]
@@ -16,3 +16,9 @@ ocaml-build = {version = "^1.0.0"}
 
 # Or use the development version:
 # ocaml = {git = "https://github.com/zshipko/ocaml-rs.git"}
+
+[source.crates-io]
+replace-with = "vendored-sources"
+
+[source.vendored-sources]
+directory = "vendor"

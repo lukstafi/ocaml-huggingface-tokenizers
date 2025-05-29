@@ -11,6 +11,9 @@
 # ocamlbuild working directory
 _build/
 
+# cargo build directory
+target/
+
 # ocamlbuild targets
 *.byte
 *.native

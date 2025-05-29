@@ -1,2 +1,2 @@
 let () =
-  print_endline @@ huggingface_tokenizers.hello_world ()
+  print_endline @@ Huggingface_tokenizers.hello_world ()
