@@ -1,0 +1,4 @@
+(executable
+ (public_name framework_integration_demo)
+ (name framework_integration_demo)
+ (libraries huggingface_tokenizers))
